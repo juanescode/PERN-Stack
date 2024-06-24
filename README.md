@@ -25,4 +25,5 @@
 Entering the credentials of each person who clones this repository is always 
 DB_DIALECT=postgres and in my case PORT=3000
 
-![image](https://github.com/juanescode/PERN-Stack/assets/163781775/bd5630c3-4686-4b40-9395-279ee7452f1c)
+![image](https://github.com/juanescode/PERN-Stack/assets/163781775/75421e66-ffb7-43c2-830d-0875841d3c94)
+
