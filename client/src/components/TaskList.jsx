@@ -13,7 +13,7 @@ import {
   Button,
   CircularProgress,
 } from "@mui/material";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -164,6 +164,7 @@ function TaskList() {
           </Toolbar>
         </AppBar>
       </Box>
+      
       <h1>Task List</h1>
       {filteredTasks.map((task) => (
         <Card
@@ -180,9 +181,38 @@ function TaskList() {
             }}
           >
             <div style={{ color: "white" }}>
-              <Typography variant="subtitle1" component="h2">ID: {task.id}</Typography>
-              <Typography>{task.title}</Typography>
-              <Typography>{task.description}</Typography>
+              <Typography
+                variant="subtitle1"
+                component="h2"
+                style={{
+                  color: "#3498db",
+                  marginBottom: "4px",
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                }}
+              >
+                ID: {task.id}
+              </Typography>
+              <Typography
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  color: "#9047FF",
+                  marginBottom: "4px",
+                }}
+              >
+                {task.title}
+              </Typography>
+              <Typography
+                style={{
+                  fontSize: "16px",
+                  color: "#9047FF",
+                  fontWeight: "bold",
+                  marginBottom: "4px",
+                }}
+              >
+                {task.description}
+              </Typography>
             </div>
 
             <div>
