@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
-import { Card, Typography, CardContent, Button } from "@mui/material";
+import {
+  Card,
+  Typography,
+  CardContent,
+  Button,
+  CircularProgress,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const loadTasks = async () => {
     const response = await fetch("http://localhost:3000/tasks");
@@ -13,6 +20,7 @@ function TaskList() {
   };
 
   const handleDelete = async (id) => {
+    setLoading(true);
     try {
       await fetch(`http://localhost:3000/tasks/${id}`, {
         method: "DELETE",
@@ -22,6 +30,8 @@ function TaskList() {
     } catch (error) {
       console.log(error);
     }
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -56,7 +66,11 @@ function TaskList() {
                 color="inherit"
                 onClick={() => navigate(`/task/${task.id}/edit`)}
               >
-                Edit
+                {loading ? (
+                  <CircularProgress color="inherit" size={24} />
+                ) : (
+                  "Edit"
+                )}
               </Button>
 
               <Button
@@ -65,7 +79,11 @@ function TaskList() {
                 onClick={() => handleDelete(task.id)}
                 style={{ marginLeft: ".5rem" }}
               >
-                Delete
+                {loading ? (
+                  <CircularProgress color="inherit" size={24} />
+                ) : (
+                  "Delete"
+                )}
               </Button>
             </div>
           </CardContent>
