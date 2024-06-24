@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
-import Menu from "./components/Navbar";
+// import Menu from "./components/Navbar";
 import { Container } from "@mui/material";
 
 function App() {
   return (
     <BrowserRouter>
-    <Menu/>
+    {/* <Menu/> */}
       <Container>
         <Routes>
           <Route path="/" element={<TaskList />} />
